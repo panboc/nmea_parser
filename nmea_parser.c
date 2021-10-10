@@ -190,6 +190,9 @@ static fsm_err_t fsm_crlf_recv_nul(fsm_t *fsm)
  */
 int nmea_parse(char *string, nmea_token_t *token)
 {
+    if((NULL == string) || (NULL == token)){
+        return -2;
+    }
     memset(&global_fsm_obj, 0, sizeof(global_fsm_obj));
     global_fsm_obj.token_ptr = token;
     global_fsm_obj.string_ptr = string;
